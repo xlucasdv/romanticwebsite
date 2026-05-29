@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Danny 💕</title>
+  
+  <!-- Fontes fofas do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0, #f6d365);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Animação do gradiente */
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Corações flutuantes de fundo */
+    .floating-heart {
+      position: fixed;
+      font-size: 20px;
+      animation: floatUp 6s ease-in infinite;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    .painel {
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      max-width: 500px;
+      border-radius: 30px;
+      text-align: center;
+      padding: 40px 30px;
+      box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+      position: relative;
+      z-index: 10;
+      border: 3px solid #ffb6c1;
+      animation: popIn 0.6s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #d6336c;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .gif-container {
+      margin: 25px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(214, 51, 108, 0.3);
+    }
+
+    .gif-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gif-container img:hover {
+      transform: scale(1.03);
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff6b9d, #d6336c);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 8px 25px rgba(214, 51, 108, 0.5);
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(214, 51, 108, 0.7);
+    }
+
+    button:active {
+      transform: translateY(-1px);
+    }
+
+    button::after {
+      content: '💖';
+      margin-left: 8px;
+    }
+
+    /* POPUP FOFO */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(102, 51, 153, 0.7);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup-content {
+      background: linear-gradient(145deg, #fff9fb, #fff);
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 90%;
+      width: 450px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 80px rgba(214, 51, 108, 0.5);
+      border: 3px solid #ffcdd2;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      color: #d6336c;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      transform: rotate(90deg) scale(1.2);
+    }
+
+    .mensagem-box {
+      margin-top: 15px;
+      color: #5a3975;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .mensagem-box p {
+      margin-bottom: 15px;
+    }
+
+    .versiculo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      color: #d6336c;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      padding: 10px;
+      background: rgba(255, 182, 193, 0.3);
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    /* Responsividade */
+    @media (max-width: 550px) {
+      .painel {
+        padding: 30px 20px;
+        border-radius: 25px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+      
+      .popup-content {
+        padding: 25px 20px;
+        width: 95%;
+      }
+    }
+
+    /* Efeito de brilho no botão */
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: shine 3s infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corações flutuantes de fundo (gerados via JS) -->
+  <div id="hearts-container"></div>
+
+  <div class="painel">
+    <h1>✨ oi, minha princesa! 💕</h1>
+    
+    <div class="gif-container">
+      <img src="https://media.tenor.com/yxw0JI9NooUAAAAC/cute-love.gif" alt="Coração fofo">
+    </div>
+    
+    <p style="color: #7a526e; margin-bottom: 15px; font-size: 1.1rem;">
+      I have something special for you.... 💝
+    </p>
+    
+    <button onclick="abrirPopup()">Click here 😏!</button>
+    
+    <p style="font-size: 0.9rem; color: #999; margin-top: 20px;">
+      Made by Lucas 💖 for Danny 
+    </p>
+  </div>
+
+  <!-- POPUP -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="fecharPopup()">&times;</span>
+      
+      <h2 style="font-family: 'Dancing Script'; color: #d6336c; font-size: 2rem; margin-bottom: 15px;">
+        To My Favorite Person 🌹
+      </h2>
+      
+      <div class="mensagem-box">
+        <p>
+          I am so grateful for having you. 
+          You are the most beautiful and incredible woman I have ever met! 
+          ✨ You are fun, have the most beautiful smile, kind, and I love every moment by your side. 
+          You are simply wonderful! 💕
+        </p>
+        
+        <div class="versiculo">
+           "By Machado de Assis" <br>
+          <span style="font-size: 1.1rem; font-family: 'Quicksand';">
+            "Books and flowers
+
+Your eyes are my books.
+What better book is there?
+Where best to read
+The love page?
+
+Flowers are your lips to me.
+Where there is the most beautiful flower,
+Where is it best to drink?
+The balm of love?"
+          </span>
+        </div>
+        
+        <p style="margin-top: 20px; font-style: italic; color: #8a639c;">
+          I love you! 🌹💖
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Funções do popup
+    function abrirPopup() {
+      document.getElementById("popup").style.display = "flex";
+      criarConfete(); // Efeito especial ao abrir!
+    }
+
+    function fecharPopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Fechar ao clicar fora do conteúdo
+    document.getElementById("popup").addEventListener("click", function(e) {
+      if (e.target === this) fecharPopup();
+    });
+
+    // Criar corações flutuantes de fundo
+    function criarCoracaoFundo() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.innerHTML = ["💖", "💕", "💗", "💓", "✨", "🌸"][Math.floor(Math.random() * 6)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      heart.style.fontSize = (15 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      
+      // Remover após animação
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    // Criar corações continuamente
+    setInterval(criarCoracaoFundo, 800);
+
+    // Efeito de confete ao abrir o popup
+    function criarConfete() {
+      const colors = ["#ff6b9d", "#d6336c", "#ffb6c1", "#f6d365", "#ffc3a0"];
+      
+      for (let i = 0; i < 30; i++) {
+        const confete = document.createElement("div");
+        confete.style.cssText = `
+          position: fixed;
+          width: 10px;
+          height: 10px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          left: ${Math.random() * 100}vw;
+          top: -10px;
+          border-radius: ${Math.random() > 0.5 ? "50%" : "0"};
+          animation: fall ${2 + Math.random() * 3}s linear forwards;
+          z-index: 999;
+          pointer-events: none;
+        `;
+        document.body.appendChild(confete);
+        setTimeout(() => confete.remove(), 5000);
+      }
+    }
+
+    // Animação de queda para confete
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Criar alguns corações iniciais
+    for (let i = 0; i < 10; i++) {
+      setTimeout(criarCoracaoFundo, i * 300);
+    }
+  </script>
+</body>
+</html>
